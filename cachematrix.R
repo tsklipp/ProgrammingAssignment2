@@ -1,5 +1,5 @@
-## This R code have functions to solve the inverse of a matrix and to chache the result of this
-## operation to avoid costly computation on a demand for the same inverse matrix
+## This R code have functions to solve the inverse of a matrix and to cache the result of this
+## operation to avoid costly computation on a demand to solve the inverse for the same matrix
 
 ## This function is responsible for caching the inverse of a matrix to later use
 makeCacheMatrix <- function(x = matrix()) {
@@ -17,7 +17,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Compute the inverse of a matrix or gets the inverse matrix from the cmakeache
+## Compute the inverse of a matrix or gets the inverse matrix from cache
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -27,6 +27,7 @@ cacheSolve <- function(x, ...) {
                 message("getting inverse matrix from cached data")
                 return(m)
         }
+        
         data <- x$get()
         m <- solve(data, ...)
         x$setinverse(m)
